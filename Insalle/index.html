@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In'salles libres</title>
+    <link rel="stylesheet" href="./css/menu.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="./js/data.js" defer></script>
+    <script src="./js/menu.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1 class="title">In'salles libres</h1>
+    </header>
+
+    <section>
+        <form class="form">
+            <label for="day" class="label">Jour :</label>
+            <select name="day" id="day">
+                <option value="1">Lundi</option>
+                <option value="2">Mardi</option>
+                <option value="3">Mercredi</option>
+                <option value="4">Jeudi</option>
+                <option value="5">Vendredi</option>
+            </select>
+        </form>
+        <!-- Selecteur de creneau -->
+        <form class="form">
+            <label for="creneau" class="label">Indiquez le créneau</label>
+            <select name="creneau" id="creneau">
+                <option value="0">---créneau---</option>
+                <option value="8">8h-9h30</option>
+                <option value="9">9h45-11h15</option>
+                <option value="11">11h30-13h</option>
+                <option value="13">13h15-14h45</option>
+                <option value="15">15h-16h30</option>
+                <option value="16">16h45-18h15</option>
+            </select>
+        </form>
+        <div class="form">
+            <label class="label">Rechercher si une salle est dispo par étage, couloir, numéro</label>
+            <input class="searchbar" id="searchbar" type="search" placeholder="ex: DU-B-RJ-01 ou RJ-06 ou 6">
+        </div>
+            
+        
+    </section>
+
+
+    <!-- Section affichage des données-->
+    <section class="section">
+        <div class="liste inactive" id="lh8">
+            <!-- <p>Magellan</p> -->
+            <div id="Ma8"></div>
+            <!-- <p>Dumont d'Urville</p> -->
+            <div id="Du8"></div>
+            <!-- <p>Lh</p> -->
+            <div id="Lh8"></div>
+            <!-- <p>Bougainville</p> -->
+            <div id="Bo8"></div>
+            <!-- <p>Darwin</p> -->
+            <div id="Da8"></div>
+            <!-- <p>Autres salles</p> -->
+            <div id="Autres8"></div>
+        </div>
+        <div class="liste inactive" id="lh9">
+            <!-- <p>Magellan</p> -->
+            <div id="Ma9_45"></div>
+            <!-- <p>Dumont d'Urville</p> -->
+            <div id="Du9_45"></div>
+            <!-- <p>Lh</p> -->
+            <div id="Lh9_45"></div>
+            <!-- <p>Bougainville</p> -->
+            <div id="Bo9_45"></div>
+            <!-- <p>Darwin</p> -->
+            <div id="Da9_45"></div>
+            <!-- <p>Autres salles</p> -->
+            <div id="Autres9_45"></div>
+        </div>
+        <div class="liste inactive" id="lh11">
+            <!-- <p>Magellan</p> -->
+            <div id="Ma11_30"></div>
+            <!-- <p>Dumont d'Urville</p> -->
+            <div id="Du11_30"></div>
+            <!-- <p>Lh</p> -->
+            <div id="Lh11_30"></div>
+            <!-- <p>Bougainville</p> -->
+            <div id="Bo11_30"></div>
+            <!-- <p>Darwin</p> -->
+            <div id="Da11_30"></div>
+            <!-- <p>Autres salles</p> -->
+            <div id="Autres11_30"></div>
+        </div>
+        <div class="liste inactive" id="lh13">
+            <!-- <p>Magellan</p> -->
+            <div id="Ma13_15"></div>
+            <!-- <p>Dumont d'Urville</p> -->
+            <div id="Du13_15"></div>
+            <!-- <p>Lh</p> -->
+            <div id="Lh13_15"></div>
+            <!-- <p>Bougainville</p> -->
+            <div id="Bo13_15"></div>
+            <!-- <p>Darwin</p> -->
+            <div id="Da13_15"></div>
+            <!-- <p>Autres salles</p> -->
+            <div id="Autres13_15"></div>
+        </div>
+        <div class="liste inactive" id="lh15">
+            <!-- <p>Magellan</p> -->
+            <div id="Ma15"></div>
+            <!-- <p>Dumont d'Urville</p> -->
+            <div id="Du15"></div>
+            <!-- <p>Lh</p> -->
+            <div id="Lh15"></div>
+            <!-- <p>Bougainville</p> -->
+            <div id="Bo15"></div>
+            <!-- <p>Darwin</p> -->
+            <div id="Da15"></div>
+            <!-- <p>Autres salles</p> -->
+            <div id="Autres15"></div>            
+        </div>
+        <div class="liste inactive" id="lh16">
+            <!-- <p>Magellan</p> -->
+            <div id="Ma16_45"></div>
+            <!-- <p>Dumont d'Urville</p> -->
+            <div id="Du16_45"></div>
+            <!-- <p>Lh</p> -->
+            <div id="Lh16_45"></div>
+            <!-- <p>Bougainville</p> -->
+            <div id="Bo16_45"></div>
+            <!-- <p>Darwin</p> -->
+            <div id="Da16_45"></div>
+            <!-- <p>Autres salles</p> -->
+            <div id="Autres16_45"></div>
+        </div>
+    </section>
+
+
+
+    <footer>
+
+    </footer>
+</body>
+</html>

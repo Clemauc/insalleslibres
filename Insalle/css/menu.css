@@ -1,0 +1,20 @@
+
+/* default */
+.form {
+    display: flex;
+    justify-content: center;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+/* event */
+.inactive{
+    display: none;
+    font-size: 0px;
+}
+
+.active {
+    display: contents;
+    width: auto;
+    height: auto;
+}
