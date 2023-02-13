@@ -1,0 +1,29 @@
+@media (max-width: 600px){
+    .section div.active {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .section div.active div.activep{
+        margin: 10px 0;
+        display: flex;
+        justify-content: center;
+    }
+    #table {
+        margin: 0;
+    }
+    .form{
+        display: flex;
+        flex-direction: column;
+        padding: 2%;
+    }
+    .label{
+        padding-bottom: 5px;
+    }
+    .searchbar{
+        width: 100%;
+    }
+    .title{
+        font-size: 3em;
+    }
+}
