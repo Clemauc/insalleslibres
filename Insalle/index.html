@@ -7,18 +7,20 @@
     <title>In'salles libres</title>
     <link rel="stylesheet" href="./css/menu.css">
     <link rel="stylesheet" href="./css/main.css">
-    <script src="./js/data.js" defer></script>
-    <script src="./js/menu.js" defer></script>
+    <link rel="stylesheet" href="./css/responsive.css">
+    <script src="./js/data.js" type="module" defer></script>
+    <script src="./js/menu.js" type="module" defer></script>
 </head>
 <body>
-    <header>
+    
+    <header class="header">
         <h1 class="title">In'salles libres</h1>
     </header>
 
-    <section>
+    <section class="section1">
         <form class="form">
             <label for="day" class="label">Jour :</label>
-            <select name="day" id="day">
+            <select name="day" id="day" class="encadre">
                 <option value="1">Lundi</option>
                 <option value="2">Mardi</option>
                 <option value="3">Mercredi</option>
@@ -28,8 +30,8 @@
         </form>
         <!-- Selecteur de creneau -->
         <form class="form">
-            <label for="creneau" class="label">Indiquez le créneau</label>
-            <select name="creneau" id="creneau">
+            <label for="creneau" class="label">Indiquer le créneau :</label>
+            <select name="creneau" id="creneau" class="encadre">
                 <option value="0">---créneau---</option>
                 <option value="8">8h-9h30</option>
                 <option value="9">9h45-11h15</option>
@@ -40,9 +42,10 @@
             </select>
         </form>
         <div class="form">
-            <label class="label">Rechercher si une salle est dispo par étage, couloir, numéro</label>
-            <input class="searchbar" id="searchbar" type="search" placeholder="ex: DU-B-RJ-01 ou RJ-06 ou 6">
+            <label class="label">Rechercher si une salle est disponible par étage, couloir, numéro :</label>
+            <input class="searchbar" id="searchbar" name="size" type="search" placeholder="ex: DU-B-RJ-01 ou RJ-06 ou 6">
         </div>
+        <p id="nbs">Il y a <span class="nb" id="nbt"></span> salles de libres</p>
             
         
     </section>
@@ -62,7 +65,7 @@
             <!-- <p>Darwin</p> -->
             <div id="Da8"></div>
             <!-- <p>Autres salles</p> -->
-            <div id="Autres8"></div>
+            <!-- <div id="Autres8"></div> -->
         </div>
         <div class="liste inactive" id="lh9">
             <!-- <p>Magellan</p> -->
@@ -76,7 +79,7 @@
             <!-- <p>Darwin</p> -->
             <div id="Da9_45"></div>
             <!-- <p>Autres salles</p> -->
-            <div id="Autres9_45"></div>
+            <!-- <div id="Autres9_45"></div> -->
         </div>
         <div class="liste inactive" id="lh11">
             <!-- <p>Magellan</p> -->
@@ -90,7 +93,7 @@
             <!-- <p>Darwin</p> -->
             <div id="Da11_30"></div>
             <!-- <p>Autres salles</p> -->
-            <div id="Autres11_30"></div>
+            <!-- <div id="Autres11_30"></div> -->
         </div>
         <div class="liste inactive" id="lh13">
             <!-- <p>Magellan</p> -->
@@ -104,7 +107,7 @@
             <!-- <p>Darwin</p> -->
             <div id="Da13_15"></div>
             <!-- <p>Autres salles</p> -->
-            <div id="Autres13_15"></div>
+            <!-- <div id="Autres13_15"></div> -->
         </div>
         <div class="liste inactive" id="lh15">
             <!-- <p>Magellan</p> -->
@@ -118,7 +121,7 @@
             <!-- <p>Darwin</p> -->
             <div id="Da15"></div>
             <!-- <p>Autres salles</p> -->
-            <div id="Autres15"></div>            
+            <!-- <div id="Autres15"></div> -->
         </div>
         <div class="liste inactive" id="lh16">
             <!-- <p>Magellan</p> -->
@@ -132,14 +135,14 @@
             <!-- <p>Darwin</p> -->
             <div id="Da16_45"></div>
             <!-- <p>Autres salles</p> -->
-            <div id="Autres16_45"></div>
+            <!-- <div id="Autres16_45"></div> -->
         </div>
     </section>
 
 
 
     <footer>
-
+        
     </footer>
 </body>
 </html>

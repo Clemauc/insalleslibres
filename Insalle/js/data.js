@@ -1,5 +1,7 @@
+import { Searchbar } from "./menu.js"
+
 const date = new Date()
-var day = date.getDate() + 1
+var day = date.getDay()
 
 // liste des heures de début des créneaux
 let heure = ['8', '9_45', '11_30', '13_15', '15', '16_45']
@@ -11,22 +13,22 @@ if (day == 6 || day == 7){
 var dayfrom = document.getElementById('day')
 dayfrom.selectedIndex= (day-1).toString()
 
-function getdata(day, searchword, longueur){
+function getdata(day){
   //pour chaque élément de la liste ...
   heure.forEach(function(item, indice){
     // ... récupère les endroits dans le fichier html où l'on va insérer les données ...
-    const aMa = document.getElementById("Ma"+item)
+    const aMa = document.getElementById("Ma"+item);
     const aDu = document.getElementById("Du"+item);
     const aLh = document.getElementById("Lh"+item);
     const aBo = document.getElementById("Bo"+item);
     const aDa = document.getElementById("Da"+item);
-    const aa = document.getElementById("Autres"+item);
+    // const aa = document.getElementById("Autres"+item);
     fetch("./Py/listesalles"+day+".json")
       .then((response) => {
         const data = response.json();
         data.then((response) => {
           // listes contenants toutes les données de chaques bâtiments créneau par créneau
-          var Ma = [
+          const Ma = [
             response.h8.Magellanh8,
             response.h9_45.Magellanh9_45,
             response.h11_30.Magellanh11_30,
@@ -66,37 +68,28 @@ function getdata(day, searchword, longueur){
             response.h15.Darwinh15,
             response.h16_45.Darwinh16_45
           ];
-          const a = [
-            response.h8.AutresSallesh8,
-            response.h9_45.AutresSallesh9_45,
-            response.h11_30.AutresSallesh11_30,
-            response.h13_15.AutresSallesh13_15,
-            response.h15.AutresSallesh15,
-            response.h16_45.AutresSallesh16_45
-          ];
+          // const a = [
+          //   response.h8.AutresSallesh8,
+          //   response.h9_45.AutresSallesh9_45,
+          //   response.h11_30.AutresSallesh11_30,
+          //   response.h13_15.AutresSallesh13_15,
+          //   response.h15.AutresSallesh15,
+          //   response.h16_45.AutresSallesh16_45
+          // ];
           // ... et insère les données aux bons endroits pour le bon créneau
           aMa.innerHTML = Ma[indice];
           aDu.innerHTML = Du[indice];
           aLh.innerHTML = Lh[indice];
           aBo.innerHTML = Bo[indice];
           aDa.innerHTML = Da[indice];
-          aa.innerHTML = a[indice];
-          // recherche
-          if (searchword != ''){
-            var longueur = searchword.length
-            aMa.innerHTML = aMa.innerHTML.slice(aMa.innerText.search(searchword), aMa.innerText.search(searchword)+ longueur)
-            aDu.innerHTML = aDu.innerHTML.slice(aDu.innerText.search(searchword), aDu.innerText.search(searchword)+ longueur)
-            aLh.innerHTML = aLh.innerHTML.slice(aLh.innerText.search(searchword), aLh.innerText.search(searchword)+ longueur)
-            aBo.innerHTML = aBo.innerHTML.slice(aBo.innerText.search(searchword), aBo.innerText.search(searchword)+ longueur)
-            aDa.innerHTML = aDa.innerHTML.slice(aDa.innerText.search(searchword), aDa.innerText.search(searchword)+ longueur)
-            aa.innerHTML = aa.innerHTML.slice(aa.innerText.search(searchword), aa.innerText.search(searchword)+ longueur)
-          }
-          aMa.innerHTML = "<table id=\"table\"><thead><tr id=\"t2\"><th id=\"t\">Magellan</th></tr></thead><tbody><tr id=\"t\"><td id=\"t\">"+aMa.innerHTML.replaceAll(',', '<br>')+"</td></tr></tbody></table>"
-          aDu.innerHTML = "<table id=\"table\"><thead><tr id=\"t2\"><th id=\"t\">Dumont d\'Urville</th></tr></thead><tbody><tr id=\"t\"><td id=\"t\">"+aDu.innerHTML.replaceAll(',', '<br>')+"</td></tr></tbody></table>"
-          aLh.innerHTML = "<table id=\"table\"><thead><tr id=\"t2\"><th id=\"t\">Lh</th></tr></thead><tbody><tr id=\"t\"><td id=\"t\">"+aLh.innerHTML.replaceAll(',', '<br>')+"</td></tr></tbody></table>"
-          aBo.innerHTML = "<table id=\"table\"><thead><tr id=\"t2\"><th id=\"t\">Bougainville</th></tr></thead><tbody><tr id=\"t\"><td id=\"t\">"+aBo.innerHTML.replaceAll(',', '<br>')+"</td></tr></tbody></table>"
-          aDa.innerHTML = "<table id=\"table\"><thead><tr id=\"t2\"><th id=\"t\">Darwin</th></tr></thead><tbody><tr id=\"t\"><td id=\"t\">"+aDa.innerHTML.replaceAll(',', '<br>')+"</td></tr></tbody></table>"
-          aa.innerHTML = "<table id=\"table\"><thead><tr id=\"t2\"><th id=\"t\">Autres salles</th></tr></thead><tbody><tr id=\"t\"><td id=\"t\">"+aa.innerHTML.replaceAll(',', '<br>')+"</td></tr></tbody></table>"
+          // aa.innerHTML = a[indice];
+          aMa.innerHTML = "<table id=\"table\"><thead><tr id=\"t2\"><th id=\"t\">Magellan</th></tr></thead><tbody><tr id=\"t\"><td id=\"t\"><p class=\"salle Ma t"+item+"\">"+aMa.innerHTML.replaceAll(',', "</p><p class=\"salle Ma t"+item+"\">")+"</p></td></tr></tbody></table>"
+          aDu.innerHTML = "<table id=\"table\"><thead><tr id=\"t2\"><th id=\"t\">Dumont d\'Urville</th></tr></thead><tbody><tr id=\"t\"><td id=\"t\"><p class=\"salle Du t"+item+"\">"+aDu.innerHTML.replaceAll(',', "</p><p class=\"salle Du t"+item+"\">")+"</p></td></tr></tbody></table>"
+          aLh.innerHTML = "<table id=\"table\"><thead><tr id=\"t2\"><th id=\"t\">Lh</th></tr></thead><tbody><tr id=\"t\"><td id=\"t\"><p class=\"salle Lh t"+item+"\">"+aLh.innerHTML.replaceAll(',', "</p><p class=\"salle Lh t"+item+"\">")+"</p></td></tr></tbody></table>"
+          aBo.innerHTML = "<table id=\"table\"><thead><tr id=\"t2\"><th id=\"t\">Bougainville</th></tr></thead><tbody><tr id=\"t\"><td id=\"t\"><p class=\"salle Bo t"+item+"\">"+aBo.innerHTML.replaceAll(',', "</p><p class=\"salle Bo t"+item+"\">")+"</p></td></tr></tbody></table>"
+          aDa.innerHTML = "<table id=\"table\"><thead><tr id=\"t2\"><th id=\"t\">Darwin</th></tr></thead><tbody><tr id=\"t\"><td id=\"t\"><p class=\"salle Da t"+item+"\">"+aDa.innerHTML.replaceAll(',', "</p><p class=\"salle Da t"+item+"\">")+"</p></td></tr></tbody></table>"
+          // aa.innerHTML = "<table id=\"table\"><thead><tr id=\"t2\"><th id=\"t\">Autres salles</th></tr></thead><tbody><tr id=\"t\"><td id=\"t\"><p class=\"salle\">"+aa.innerHTML.replaceAll(',', '</p><p class=\"salle\">')+"</p></td></tr></tbody></table>"
+          Searchbar()
         })
     
     // en cas d'erreur    
@@ -106,21 +99,15 @@ function getdata(day, searchword, longueur){
   })
 }
 
-const content = document.getElementById('searchbar')
-
-function Search(){
-  var values = content.value
-  getdata(day, values)
-}
-content.onchange = Search;
-Search()
-
+const searchbar = document.getElementById('searchbar')
 function onChange() {
+  // let searchbar_value= searchbar.value
   var value = dayfrom.value;
   day = value
-  getdata(day, content.value)
+  getdata(day)
 }
-dayfrom.onchange = onChange;
 onChange()
 
-
+dayfrom.addEventListener('change', function(){
+  onChange()
+})
